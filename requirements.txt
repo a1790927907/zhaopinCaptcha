@@ -1,0 +1,9 @@
+requests==2.26.0
+requests-toolbelt==0.9.1
+loguru==0.5.3
+pydantic==1.8.2
+fastapi==0.70.0
+uvicorn==0.15.0
+pyquery==1.4.3
+aiohttp==3.8.1
+python-multipart==0.0.5
