@@ -2,7 +2,7 @@ set -e
 
 path=`dirname $0`
 cd $path
-pwd
+
 printf "输入 captcha server image tag: "
 read captchaServerTag
 printf "输入 extractor server image tag: "
