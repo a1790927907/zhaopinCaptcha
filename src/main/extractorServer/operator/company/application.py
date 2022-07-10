@@ -54,7 +54,6 @@ class Application(BaseApplication):
         :return:
         """
         cookies = await self.get_cookies(url)
-        print(cookies)
         response: str = await self.settings.session.get(
             url, headers={
                 "cookie": cookies
