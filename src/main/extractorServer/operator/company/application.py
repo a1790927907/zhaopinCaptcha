@@ -36,7 +36,7 @@ class Application(BaseApplication):
     @staticmethod
     def is_company_page(text: str) -> bool:
         selector = PyQuery(text)
-        return bool(selector(".mian-company"))
+        return bool(selector(".mian-company") or selector(".job-summary"))
 
     @staticmethod
     async def get_company_info_response_callback(res: aiohttp.ClientResponse):

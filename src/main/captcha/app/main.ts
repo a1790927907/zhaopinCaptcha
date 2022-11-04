@@ -24,11 +24,22 @@ class ZhaoPinCompanyExtractor {
         })
         await page.goto(url, { waitUntil: "networkidle0" })
         await delay(300)
-        const companyInfo = await page.$(".mian-company")
-        if (!companyInfo) {
+        const [companySelector, jobSelector] = [".mian-company", ".job-summary"]
+        const companyInfo = await page.$(companySelector)
+        const jobInfo = await page.$(jobSelector)
+        let selector: string
+        if (!companyInfo && !jobInfo) {
             await verify(page)
+            await delay(1000)
         }
-        return await extractZhaoPinCompanyPageInfo(page)
+        if (await page.$(companySelector)) {
+            selector = companySelector
+        } else if (await page.$(jobSelector)) {
+            selector = jobSelector
+        } else {
+            throw new Error(`当前页面非公司也非职位, ${(!companySelector && !jobInfo) ? "已验证验证码" : "未验证验证码"}`)
+        }
+        return await extractZhaoPinCompanyPageInfo(page, selector)
     }
 
     getZhaoPinCompanyPageInfo = async (url: string) => {

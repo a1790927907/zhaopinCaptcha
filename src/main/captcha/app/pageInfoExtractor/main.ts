@@ -7,8 +7,8 @@ interface ZhaoPinCompanyPageInfo {
     url: string
 }
 
-const extractZhaoPinCompanyPageInfo = async (page: Page): Promise<ZhaoPinCompanyPageInfo> => {
-    await page.waitForSelector(".mian-company", {
+const extractZhaoPinCompanyPageInfo = async (page: Page, selector: string): Promise<ZhaoPinCompanyPageInfo> => {
+    await page.waitForSelector(selector, {
         timeout: 5000
     })
     await delay(500)

@@ -18,8 +18,8 @@ then
   extractorServerTag=v0.0.1
 fi
 
-captchaServerImage=harbor.nadileaf.com/develop/zhaopin-captcha-server:$captchaServerTag
-extractorServerImage=harbor.nadileaf.com/develop/zhaopin-extractor-server:$extractorServerTag
+captchaServerImage=cr.mesoor.com/develop/zhaopin-captcha-server:$captchaServerTag
+extractorServerImage=cr.mesoor.com/develop/zhaopin-extractor-server:$extractorServerTag
 
 echo "开始构建 captchaServerTag: $captchaServerTag extractorServerTag: $extractorServerTag"
 
